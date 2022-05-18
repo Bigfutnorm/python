@@ -3,15 +3,19 @@ from tkinter import Button
 from kivy.app import App
 from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.anchorlayout import AnchorLayout
 
 
 class MyApp(App):
     def build(self):
-        two_button = BoxLayout(orientation = 'vertical', padding = [150, 200], spacing = 70)
+        box_for_button = AnchorLayout()
+        two_button = BoxLayout(orientation = 'vertical', size_hint = [.5, .5], spacing = 50)
         
         two_button.add_widget(Button(text='MAN'))
         two_button.add_widget(Button(text='WOMAN'))
-        return two_button
+
+        box_for_button.add_widget(two_button)
+        return box_for_button
 
 
     
